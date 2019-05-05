@@ -12,7 +12,8 @@ A container is a standard unit of software that packages up code and all its dep
 
 ## How the application works with containers
 Docker is being used to build images, and containers can be ran from the images built, kubernetes is used for container orchestration in the application
-- The frontend Dockerfile
+
+## The frontend Dockerfile
 ```
 # base image 
 FROM node:8-alpine AS build
@@ -65,7 +66,7 @@ COPY . .
 ```
  The frontend image is built from a `node:8-alpine` image, the commands are being executed in sequence, the frontend can be executed with the command `docker build -t latest .`
 
-- The backend Dockerfile
+## The backend Dockerfile
 ```
 FROM alpine:3.7 as build
 
@@ -137,7 +138,7 @@ COPY . .
 ```
  The commands are being executed in sequece when the dockerfile is ran, the file can be executed with the command `docker build -t latest .`
  
- - The backend Circle CI config
+ ## The backend Circle CI config
  ```
  git default: &defaults
   docker:
@@ -696,6 +697,6 @@ workflows:
  - Release to production
  - Deploy production
  
-- The frontend Circle CI config
+## The frontend Circle CI config
 [Frontend Circle CI](https://github.com/andela/activo-web/blob/develop/.circleci/config.yml)
 The config is slightly different from the back end, but same process takes place as the backend
